@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>不同样式的表格</title>
+	<link rel="shortcut icon" href="images/me.ico">
+</head>
+ <style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	table{
+		margin: 20px auto;
+	}
+	.linebox{
+		position: relative;
+		height: 40px;
+	}
+	div{
+		height: 50%;
+		width: 100%;
+	}
+	h1{
+		text-align: center;
+		color: #333;
+		line-height: 100px;
+	}
+ </style>
+<body>
+	<h1>两分栏表头表格</h1>
+	<table border=0 bgcolor="000000" cellspacing="1" width=400>
+		<tr bgcolor="FFFFFF "style="position: relative">
+    		<td id="slash" style="height:80px;width:150px;">
+ 				<div align="right" class="linebox">姓名</div>
+ 				<div>科目</div>
+		 	</td>
+		    <td>张三</td>
+		    <td>李四</td>
+		    <td>王五</td>
+		</tr>
+		<tr bgcolor="FFFFFF">
+		    <td>数学</td>
+		    <td>55</td>
+		    <td>66</td>
+		    <td>77</td>
+		</tr>
+		<tr bgcolor="FFFFFF">
+		    <td>英语</td>
+		    <td>99</td>
+		    <td>68</td>
+		    <td>71</td>
+		</tr>
+		<tr bgcolor="FFFFFF">
+		    <td>语文</td>
+		    <td>33</td>
+		    <td>44</td>
+		    <td>55</td>
+		</tr>
+	</table>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+$(function(){
+	function a(x,y,color){
+		$(".linebox").append("<p border='0' style='position: absolute; left: "+(x+0)+"; top: "+y+";background-color: "+color+";width:1px; height:1px;'></p>")
+	}
+	function line(x1,y1,x2,y2,color){
+	    var tmp
+	    if(x1>=x2){
+	        tmp=x1;
+	        x1=x2;
+	        x2=tmp;
+	        tmp=y1;
+	        y1=y2;
+	        y2=tmp;
+	    }
+	    for(var i=x1;i<=x2;i++){
+	        x = i;
+	        y = (y2 - y1) / (x2 - x1) * (x - x1) + y1;
+	        a(x,y,color);
+	    }
+	}
+	//line(1,1,1000,1000,"000000");
+	line(slash.offsetLeft,slash.offsetTop,slash.offsetLeft+slash.offsetWidth,slash.offsetTop+slash.offsetHeight,'#000')
+})
+</script>
+</body>
+</html>

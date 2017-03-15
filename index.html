@@ -26,6 +26,66 @@
 		color: #333;
 		line-height: 100px;
 	}
+	h5{
+		width: 1px;
+		height: 1px;
+		position: absolute;
+	}
+
+
+
+	/* 搜索信息 */
+	 table {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        th {
+            user-select: none;
+            height: 30px;
+        }
+
+        .p {
+            position: relative;
+            cursor: pointer;
+        }
+
+        th, td {
+            border: 1px solid black;
+            width: 150px;
+        }
+
+        #seach {
+            margin-left: 55px;
+            width: 350px;
+        }
+
+        #btn2, #btn3 {
+            width: 80px;
+            /*background-color: mediumspringgreen;*/
+        }
+
+        .gt s {
+            display: inline-block;
+            border-width: 5px 5px 0 5px;
+            border-color: #000000 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+            border-style: solid;
+            position: absolute;
+            top: 14px;
+            right: 38px;
+        }
+
+        .lt s {
+            display: inline-block;
+            border-width: 5px 5px 0 5px;
+            border-color: #000000 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+            border-style: solid;
+            position: absolute;
+            top: 14px;
+            right: 38px;
+            transform: rotateZ(180deg);
+        }
  </style>
 <body>
 	<h1>两分栏表头表格</h1>
@@ -58,11 +118,81 @@
 		    <td>55</td>
 		</tr>
 	</table>
+	<h1>table搜索信息</h1>
+	<form id="form1" style="text-align: center">
+	    <p>
+	        <label for="userName">姓名：</label>
+	        <input type="text" id="userName" name="userName"/>
+	        <label for="classNum">班级</label>
+	        <input type="text" id="classNum" name="classNum"/>
+	        <label for="age">年龄：</label>
+	        <input type="text" id="age" name="age"/>
+	        <input type="button" value="提交" name="btn1" id="btn1"/>
+	    </p>
+	    <p>
+	        <input type="text" id="seach">
+	        <input type="button" id="btn2" value="搜索">
+	        <input type="button" id="btn3" value="复原">
+	    </p>
+	</form>
+	<table id="tab1">
+	    <thead>
+	    <tr>
+	        <th>
+	            <input type="checkbox" name="allCheck" id="allCheck"/>
+	            <span>全选</span>
+	        </th>
+	        <th class="p">姓名<s></s></th>
+	        <th class="p">班级<s></s></th>
+	        <th class="p">年龄<s></s></th>
+	        <th>操作</th>
+	    </tr>
+	    </thead>
+	    <tbody>
+		    <tr index="0">
+		        <td><input type="checkbox"></td>
+		        <td>张三</td>
+		        <td>5班</td>
+		        <td>1</td>
+		        <td><a href="javascript:;">删除</a></td>
+		    </tr>
+		    <tr index="1">
+		        <td><input type="checkbox"></td>
+		        <td>啊三</td>
+		        <td>4班</td>
+		        <td>3</td>
+		        <td><a href="javascript:;">删除</a></td>
+		    </tr>
+		    <tr index="2">
+		        <td><input type="checkbox"></td>
+		        <td>张四</td>
+		        <td>3班</td>
+		        <td>2</td>
+		        <td><a href="javascript:;">删除</a></td>
+		    </tr>
+			<tr index="3">
+			        <td><input type="checkbox"></td>
+			        <td>小四</td>
+			        <td>6班</td>
+			        <td>12</td>
+			        <td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr index="4">
+		        <td><input type="checkbox"></td>
+		        <td>阿猫</td>
+		        <td>5班</td>
+		        <td>22</td>
+		        <td><a href="javascript:;">删除</a></td>
+		    </tr>
+	    </tbody>
+	</table>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search.js"></script>
+
 <script>
-$(function(){
+/*$(function(){
 	function a(x,y,color){
-		$(".linebox").append("<p border='0' style='position: absolute; left: "+(x+0)+"; top: "+y+";background-color: "+color+";width:1px; height:1px;'></p>")
+		$(".linebox").append("<h5 style='left: "+x+"; top: "+y+";background-color: "+color+";'></h5>")
 	}
 	function line(x1,y1,x2,y2,color){
 	    var tmp
@@ -82,7 +212,7 @@ $(function(){
 	}
 	//line(1,1,1000,1000,"000000");
 	line(slash.offsetLeft,slash.offsetTop,slash.offsetLeft+slash.offsetWidth,slash.offsetTop+slash.offsetHeight,'#000')
-})
+})*/
 </script>
 </body>
 </html>
